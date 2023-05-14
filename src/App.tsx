@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-    <div className='text-2xl'>App Starter Vite+Tailwind Typescript + SWC</div>
+    <div className='text-2xl'>NaturoPathie Experts</div>
     </>
   )
 }
