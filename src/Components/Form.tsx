@@ -55,7 +55,7 @@ function Form({ modal, Close }: props) {
   };
 
   return (
-    <div className="CommonLayout overflow-auto">
+    <div className={`CommonLayout overflow-auto`}>
       {modal === true && (
         <img
           onClick={Close}
@@ -69,7 +69,7 @@ function Form({ modal, Close }: props) {
           Formulaire de pré-inscription
         </h1>
       )}
-      <div className="grid sm:w-[355px] mx-auto">
+      <div className={`grid sm:w-[355px] mx-auto  `}>
         <div className={`flex justify-center ${!modal && "mt-10"} gap-8`}>
           <div className="flex gap-3 items-center ">
             <img className="w-4" src={particulier} />
