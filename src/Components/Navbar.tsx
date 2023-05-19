@@ -2,6 +2,7 @@ import { logo } from "../Assets";
 import { Navlinks } from "../Constants/constants";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-scroll";
 import NavToggle from "./NavToggle";
 function Navbar() {
   const [toggled, setToggle] = useState(false);
@@ -13,13 +14,18 @@ function Navbar() {
         </div>
         <div className="hidden md:flex gap-20">
           {Navlinks.map((link, index) => (
-            <div
+            <Link
+              to={link.id}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
               className={`cursor-pointer font-semibold hover:text-leaf-0 SmoothIn
                hover:${link.id !== "home" && "pl-5"} transall`}
               key={index}
             >
               {link.title}
-            </div>
+            </Link>
           ))}
         </div>
         <div

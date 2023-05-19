@@ -1,7 +1,8 @@
+import { Link } from "react-scroll";
 import { hero } from "../Assets";
 function Hero() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 CommonLayout">
+    <div id="home" className="grid grid-cols-1 md:grid-cols-2 CommonLayout">
       <div className="grid gap-1 my-auto items-center text-left justify-items-start fadeInRight">
         <h1 className="font-sec text-5xl">Formez vouz en</h1>
         <div className="">
@@ -18,10 +19,26 @@ function Hero() {
         </p>
         <div className="grid font-semibold">
           <button className="mt-5 transall border-leaf-0 border-2 bg-leaf-0 text-light-0 p-2 px-6 rounded-3xl hover:bg-light-0 hover:text-leaf-0 hover:border-2">
-            S'inscrire Maintenant
+            <Link
+              to="s'inscrire"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              S'inscrire Maintenant
+            </Link>
           </button>
           <button className="mt-2 transall border-leaf-0 border-2 text-leaf-0 p-2 px-6 rounded-3xl hover:bg-leaf-0 hover:text-light-0">
-            En savoir plus
+            <Link
+              to="howitworks"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              En savoir plus
+            </Link>
           </button>
         </div>
       </div>

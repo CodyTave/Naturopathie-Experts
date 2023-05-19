@@ -2,7 +2,7 @@ import Card from "./Card";
 import { Cards } from "../Constants/constants";
 function BasesSection() {
   return (
-    <div className="CommonLayout">
+    <div className="CommonLayout" id="howitworks">
       <h1 className="text-3xl font-bold text-leaf-0 transall hover:tracking-widest mb-20">
         BASES SCIENTIFIQUES DE LA DIETETIQUE
       </h1>

@@ -89,7 +89,7 @@ function Form({ modal, Close }: props) {
           Formulaire de pré-inscription
         </h1>
       )}
-      <div className={`grid sm:w-[355px] mx-auto  `}>
+      <div className={`grid sm:w-[355px] mx-auto  `} id="s'inscrire">
         <div className={`flex justify-center ${!modal && "mt-10"} gap-8`}>
           <div className="flex gap-3 items-center ">
             <img className="w-4" src={particulier} />

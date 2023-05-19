@@ -2,7 +2,7 @@ import { plant7 } from "../Assets";
 
 function About() {
   return (
-    <div className="CommonLayout md:w-[70%] mx-auto">
+    <div className="CommonLayout md:w-[70%] mx-auto" id="about">
       <div className="flex mx-auto justify-center">
         <div className="grid sm:w-[70%] text-left">
           <h1 className="text-5xl font-bold text-leaf-0 mb-5">ABOUT US</h1>
