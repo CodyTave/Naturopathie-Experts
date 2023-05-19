@@ -22,7 +22,7 @@ function Card({ text, image, color, selection }: props) {
       <p className={`text-left w-11/12 ${textSize} text-lg`}>
         <span className="text-2xl font-bold">{fw}</span> {p}
       </p>
-      <img className="absolute -right-20 w-60 top-7" src={image} />
+      <img className="absolute -right-10 w-40 top-7" src={image} />
     </div>
   );
 }

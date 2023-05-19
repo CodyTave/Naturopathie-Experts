@@ -2,14 +2,17 @@ import { close, entreprise, particulier } from "../Assets";
 import Toggle from "./Toggle";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
 interface props {
   modal: boolean;
   Close?: () => void;
 }
-
+const apiKey = import.meta.env.VITE_API_KEY;
 function Form({ modal, Close }: props) {
   const [isToggled, setIsToggled] = useState(false);
   const [Error, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [isSent, setSent] = useState(false);
 
   const handleClick = () => {
     setIsToggled(!isToggled);
@@ -48,14 +51,31 @@ function Form({ modal, Close }: props) {
       !formData.ville
     ) {
       setError(true);
-      console.log("Please fill in all the required fields");
       return;
     }
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    axios
+      .post(apiKey, formData)
+      .then((response) => {
+        setLoading(false);
+        setSent(true);
+        setFormData({
+          Entite: "",
+          nomPrenom: "",
+          email: "",
+          telephone: "",
+          ville: "",
+        });
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+      });
   };
 
   return (
-    <div className={`CommonLayout overflow-auto`}>
+    <div className={`CommonLayout `}>
       {modal === true && (
         <img
           onClick={Close}
@@ -131,10 +151,24 @@ function Form({ modal, Close }: props) {
             <option value="Paris">Paris</option>
           </select>
           <button
+            disabled={isSent && true}
             onClick={handleSubmit}
-            className="mt-5 text-light-0 bg-leaf-0 hover:bg-earth-0 transall p-3 rounded-2xl"
+            className={`mt-5 text-light-0 ${
+              isSent ? "bg-earth-0" : "bg-leaf-0"
+            } hover:bg-earth-0 transall p-3 rounded-2xl`}
           >
-            Envoyer
+            {isLoading ? (
+              <div className="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            ) : isSent ? (
+              <div>Bien Reçu</div>
+            ) : (
+              "Envoyer"
+            )}
           </button>
           <AnimatePresence>
             {Error && (
