@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 import { poweredBy } from "../Assets";
 
 function SecondReminder() {
@@ -8,7 +9,15 @@ function SecondReminder() {
           Qu'est-ce que vous attendez ?
         </h1>
         <button className="mt-5 w-full py-2 rounded-3xl hover:bg-earth-0 bg-leaf-0 font-bold text-light-0 transall">
-          S'inscrire Maintenant
+          <Link
+            to="s'inscrire"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            S'inscrire Maintenant
+          </Link>
         </button>
         <a
           className="pt-5 w-32 mx-auto"
