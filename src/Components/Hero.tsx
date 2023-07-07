@@ -49,7 +49,12 @@ function Hero({ setScroll, setOpen, openModal }: props) {
           <img className="w-10/12 ml-auto my-auto" src={hero} />
         </div>
       </div>
-      <ModalPop openModal={openModal} setScroll={setScroll} setOpen={setOpen} />
+      <ModalPop
+        forWebinar={false}
+        openModal={openModal}
+        setScroll={setScroll}
+        setOpen={setOpen}
+      />
     </>
   );
 }

@@ -21,7 +21,12 @@ function FirstReminder({ setScroll, setOpen, openModal }: props) {
           </button>
         </div>
       </div>
-      <ModalPop openModal={openModal} setScroll={setScroll} setOpen={setOpen} />
+      <ModalPop
+        forWebinar={false}
+        openModal={openModal}
+        setScroll={setScroll}
+        setOpen={setOpen}
+      />
     </>
   );
 }
